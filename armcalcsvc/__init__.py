@@ -10,7 +10,7 @@ from sys import version_info
 from datetime import datetime, date
 from json import JSONEncoder, dumps, loads
 
-from ..parseutils import to_wcf_date, parse_wcf_date
+from .parseutils import to_wcf_date, parse_wcf_date
 
 # Choose correct library for Python version
 if version_info.major <= 2:

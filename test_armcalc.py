@@ -5,7 +5,7 @@ from __future__ import (absolute_import, division, print_function,
 
 import unittest
 from datetime import date
-from wsdottraffic.armcalc import (
+from armcalcsvc import (
     ArmCalcInput, ArmCalcOutput, ArmCalcClient)
 
 
@@ -36,6 +36,7 @@ class TestArmCalc(unittest.TestCase):
             self.assertIsInstance(item, ArmCalcOutput)
             if item.CalculationReturnCode == 0:
                 map(self.assertIsNotNone, (item.SR, item.ARM, item.SRMP))
+
 
 if __name__ == "__main__":
     unittest.main()
