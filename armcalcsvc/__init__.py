@@ -6,6 +6,7 @@ from __future__ import (absolute_import, division, print_function,
 
 from sys import version_info
 
+import re
 
 from datetime import datetime, date
 from json import JSONEncoder, dumps, loads
@@ -45,6 +46,27 @@ class ArmCalcJsonEncoder(JSONEncoder):
 class ArmCalcInput(object):
     """ArmCalc input
     """
+
+    @property
+    def RouteID(self):
+        route_id = self.SR
+        if self.RRT:
+            route_id += self.RRT
+            if self.RRQ:
+                route_id += self.RRQ
+
+    @RouteID.setter
+    def RouteID(self, value):
+        if not value:
+            self.SR, self.RRT, self.RRQ = (None,)*3
+        elif len(value) <= 3:
+            self.SR = "%03d" % int(value)
+        elif len(value) >= 5:
+            self.SR = value[:3]
+            self.RRT = value[3:5]
+            self.RRQ = value[5:]
+
+
 
     def __init__(self, CalcType=CALC_TYPE_SRMP_TO_ARM, SR="", RRT="",
                  RRQ="", ABIndicator="", ReferenceDate=None, ARM=0,

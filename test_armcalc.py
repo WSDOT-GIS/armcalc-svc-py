@@ -37,6 +37,18 @@ class TestArmCalc(unittest.TestCase):
             if item.CalculationReturnCode == 0:
                 map(self.assertIsNotNone, (item.SR, item.ARM, item.SRMP))
 
+    def test_route_id_property(self):
+        """Tests the RouteID property
+        """
+        aci = ArmCalcInput()
+        aci.RouteID = "002COABERDN"
+        self.assertEqual(aci.SR, "002")
+        self.assertEqual(aci.RRT, "CO")
+        self.assertEqual(aci.RRQ, "ABERDN")
+
+        aci.RouteID = "5"
+        self.assertEqual(aci.SR, "005")
+
 
 if __name__ == "__main__":
     unittest.main()

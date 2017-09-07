@@ -11,7 +11,7 @@ with open(path.join(HERE, "README.md")) as f:
 
 setup(
     name="armcalcsvc",
-    version="1.0.0",
+    version="1.1.0",
     description="Python client for ArmCalc web service",
     long_description=LONG_DESCRIPTION,
     url="https://github.com/WSDOT-GIS/armcalc-svc-py/",
