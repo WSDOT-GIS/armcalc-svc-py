@@ -93,7 +93,7 @@ class ArmCalcOutput(ArmCalcInput):
                  RealignmentDate=None):
         # Calculation return code.
         self.CalculationReturnCode = CalculationReturnCode
-        # Calulation return message. Will not have value if return code is 0.
+        # Calculation return message. Will not have value if return code is 0.
         self.CalculationReturnMessage = CalculationReturnMessage
         # Realignment date. Date that a route was last realigned.
         self.RealignmentDate = RealignmentDate
