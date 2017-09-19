@@ -46,6 +46,8 @@ class TestArmCalc(unittest.TestCase):
         self.assertEqual(aci.RRT, "CO")
         self.assertEqual(aci.RRQ, "ABERDN")
 
+        self.assertEqual(aci.RouteID, aci.SR + aci.RRT + aci.RRQ)
+
         aci.RouteID = "5"
         self.assertEqual(aci.SR, "005")
 

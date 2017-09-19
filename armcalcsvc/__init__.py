@@ -49,14 +49,19 @@ class ArmCalcInput(object):
 
     @property
     def RouteID(self):
+        """Gets the combined SR+RRT+RRQ route ID.
+        """
         route_id = self.SR
         if self.RRT:
             route_id += self.RRT
             if self.RRQ:
                 route_id += self.RRQ
+        return route_id
 
     @RouteID.setter
     def RouteID(self, value):
+        """Sets the SR, RRT, and RRQ values given a route ID.
+        """
         if not value:
             self.SR, self.RRT, self.RRQ = (None,)*3
         elif len(value) <= 3:
